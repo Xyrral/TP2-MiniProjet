@@ -65,6 +65,14 @@ def ft_count_days(j, m, a):
 
     d_since_smonth = d_since_syear + j
     print ("Le",j,"/",m,"/",a,"est le",d_since_smonth,"eme jour de l'année",a)
+
+    Dico_jours = {0:"Dimanche", 1:"Lundi", 2:"Mardi", 3:"Mercredi", \
+              4:"Jeudi", 5:"Vendredi", 6: "Samedi"}
+    
+    d_all = d_since_syear + d_since_smonth 
+    d_week = (d_all // 7)
+    print(Dico_jours[d_week])
+
 def ft_season(m, j):
 #Récupération de la saison
     if ((m == 3 and j > 19) or (m == 4 or m == 5) or (m == 6 and j < 20)):
@@ -75,17 +83,6 @@ def ft_season(m, j):
         print ("Cette date est en Automne.")
     else :
         print ("Cette date est en Hiver.")
-
-def ft_day_date(m, j, a):
-#Récupération du jour lié a la date#
-    Dico_jours = {0:"Dimanche", 1:"Lundi", 2:"Mardi", 3:"Mercredi", \
-              4:"Jeudi", 5:"Vendredi", 6: "Samedi"}
-    if m >= 3:
-        d = (((((23*m)/9)) + j + 4 + a + (a/4) - (a/100) + (a/400) - 2) % 7)
-    else:
-        d = (((((23*m)/9)) + j + 4 + a + ((a-1)/4) - ((a-1)/100) + ((a-1)/400)) % 7)
-
-    return(d)
 
 #Dictionnaire des mois#
 Dico_mois = { 1:"Janvier", 2:"Fevrier", 3:"Mars", 4:"Avril", \
