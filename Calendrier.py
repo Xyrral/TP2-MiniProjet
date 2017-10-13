@@ -1,4 +1,26 @@
 import sys
+def ft_fin_du_monde(j, m, a):
+    if ((j == 21) and (m == 3) and (a == 1843)):
+        print ("Le monde a été détruit ce jour la.")
+    elif ((j == 19) and (m == 2) and (a == 1979)):
+        print ("Le monde a été détruit ce jour la.")
+    elif ((j == 22) and (m == 6) and (a == 1989)):
+        print ("Le monde a été détruit ce jour la.")
+    elif ((j == 28) and (m == 10) and (a == 1992)):
+        print ("Le monde a été détruit ce jour la.")
+    elif ((j == 23) and (m == 11) and (a == 1993)):
+        print ("Le monde a été détruit ce jour la.")
+    elif ((j == 29) and (m == 1) and (a == 1999)):
+        print ("Bienvenue dans la Quatrieme dimension.")
+    elif ((j == 11) and (m == 9) and (a == 1999)):
+        print ("Une boule de feu a explosé la terre.")
+    elif ((j == 1) and (m == 1) and (a == 2000)):
+        print ("Un bug informatique a provoqué l'apocalypse et accesoirement "\
+        "Satan a détruit la terre.")
+    elif ((j == 21) and (m == 5) and (a == 2011)):
+        print ("C'était le jugement dernier. Apparement")
+    elif ((j == 21) and (m == 12) and (a == 2012)):
+        print ("Gros Cataclysme option panique générale spé fin du monde.")
 def ft_spec_mois(j, a, trente, fev, valide, bisextile):
 #Récupération des spécificités du mois#
     if  (trente == True and  (0 >= j or j > 30)):
@@ -68,7 +90,7 @@ def ft_count_days(j, m, a):
 
     Dico_jours = {0:"Dimanche", 1:"Lundi", 2:"Mardi", 3:"Mercredi", \
               4:"Jeudi", 5:"Vendredi", 6: "Samedi"}
-    
+
     d_all = d_since_syear + d_since_smonth 
     d_week = (d_all // 7)
     print(Dico_jours[d_week])
@@ -114,5 +136,4 @@ else :
 print ("La date choisie est ",j,"/",m,"/",a,".")
 ft_spec_mois(j, a, trente, fev, valide, bisextile)
 ft_season(m,j)
-ft_count_days(j, m, a)
-print(ft_day_date(j, m, a))
+ft_fin_du_monde(j, m, a)
