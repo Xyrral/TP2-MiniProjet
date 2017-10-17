@@ -21,6 +21,8 @@ def ft_fin_du_monde(j, m, a):
         print ("C'était le jugement dernier. Apparement")
     elif ((j == 21) and (m == 12) and (a == 2012)):
         print ("Gros Cataclysme option panique générale spé fin du monde.")
+    elif ((j == 28) and (m  == 12) and (a == 2031)):
+        print ("Selon Alex une guerre bacterienne ravage le monde")
 def ft_spec_mois(j, a, trente, fev, valide, bisextile):
 #Récupération des spécificités du mois#
     if  (trente == True and  (0 >= j or j > 30)):
@@ -68,6 +70,9 @@ def ft_spec_mois(j, a, trente, fev, valide, bisextile):
 
 def ft_count_days(j, m, a):
 #Récupération du jour depuis le 1/1/1#
+    Dico_jours = {0:"Dimanche", 1:"Lundi", 2:"Mardi", 3:"Mercredi", \
+              4:"Jeudi", 5:"Vendredi", 6: "Samedi"}
+
     Dico_jmois = {1:0, 2:31, 3:59, 4:90, \
              5:120, 6:151, 7:181,8:212, \
              9:243, 10:273, 11:304, \
@@ -87,13 +92,15 @@ def ft_count_days(j, m, a):
 
     d_since_smonth = d_since_syear + j
     print ("Le",j,"/",m,"/",a,"est le",d_since_smonth,"eme jour de l'année",a)
+    d_all = days + d_since_smonth 
+    print ("C'est le ",d_all,"eme jour de notre ère")
+#Formule du jour de la semaine#
+    if m >= 3:
+        d = ( ((23*m)//9) + j + 4 + a + (a//4) - (a//100) + (a//400) - 2 ) % 7
+        print("C'est un",Dico_jours[d])
+    else :
+        d = ( ((23*m)//9) + j + 4 + a + (y//4) - (y//100) + (y//400) - 2 ) % 7
 
-    Dico_jours = {0:"Dimanche", 1:"Lundi", 2:"Mardi", 3:"Mercredi", \
-              4:"Jeudi", 5:"Vendredi", 6: "Samedi"}
-
-    d_all = d_since_syear + d_since_smonth 
-    d_week = (d_all // 7)
-    print(Dico_jours[d_week])
 
 def ft_season(m, j):
 #Récupération de la saison
@@ -116,9 +123,9 @@ valide = True
 trente = False
 fev = False
 bisextile = False #Variable necessaire pour le mois de Fevrier#
-a = int(input("Année:")) #Variable de l'année#
-m = int(input("Mois:")) #Variable du mois#
 j = int(input("Jour:")) #Variable du jour#
+m = int(input("Mois:")) #Variable du mois#
+a = int(input("Anéé:")) #Variable de l'année#
 
 if m <= 12 and m >= 1:
     if m == 11 or m == 4 or m == 6 or m == 9:
@@ -136,4 +143,5 @@ else :
 print ("La date choisie est ",j,"/",m,"/",a,".")
 ft_spec_mois(j, a, trente, fev, valide, bisextile)
 ft_season(m,j)
+ft_count_days(j, m, a)
 ft_fin_du_monde(j, m, a)
